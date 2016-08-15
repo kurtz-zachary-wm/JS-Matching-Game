@@ -1,9 +1,15 @@
 var numberOfFaces = 5;
 var leftSide = document.getElementById('leftSide');
-    document.appendChild('keenan_allen.png');
 
 function generateFaces() {
-    var img = document.createElement('img');
+    for (var i = 0; i < numberOfFaces; i ++) {
 
 
+        var img = document.createElement('img');
+        img.src = "keenanAllen.png";
+        img.style.left = Math.random() * 400 + 'px';
+        img.style.top = Math.random() * 400 + 'px';
+        leftSide.appendChild(img);
+    }
 }
+generateFaces();
