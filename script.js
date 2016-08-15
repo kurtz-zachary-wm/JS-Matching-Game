@@ -15,6 +15,25 @@ function generateFaces() {
     var leftSideClone = leftSide.cloneNode(true);
     leftSideClone.removeChild(leftSideClone.lastChild);
     rightSide.appendChild(leftSideClone);
+
+    leftSide.lastChild.onclick = function(event) {
+        event.stopPropagation();
+        leftSide.innerHTML = "";
+        rightSide.innerHTML = "";
+        if (numberOfFaces >= 50) {
+            alert ("You Win!")
+        }
+        else {
+            numberOfFaces += 5;
+            generateFaces();
+        }
+    };
+
+    document.body.onclick = function () {
+        alert("Game Over!");
+        document.body.onclick = null;
+        leftSide.lastChild.onclick = null;
+    };
 }
 generateFaces();
 
